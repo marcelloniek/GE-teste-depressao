@@ -70,16 +70,35 @@ export default function TesteDepressao() {
         </>
       ) : (
         <>
-          <h2 className="text-xl font-semibold mb-4">Ergebnis: {resultado}</h2>
-          {resultado === "GRÜN" && <p>Sie kommen mit diesem Thema gut zurecht und sind emotional stabil. Sie könnten anderen Menschen, die Hilfe benötigen, eine große Unterstützung sein.</p>}
-          {resultado === "GELB" && <p>Es gibt deutliche Anzeichen emotionaler Schwierigkeiten, die bearbeitet werden sollten und mit Entschlossenheit und Unterstützung überwunden werden können.</p>}
-          {resultado === "ROT" && <p>Ihre emotionalen Schwierigkeiten in diesem Bereich erfordern unbedingt professionelle Hilfe. Bitte suchen Sie baldmöglichst einen Arzt oder Psychologen auf.</p>}
+          
+          <h2 className="text-xl font-semibold mb-4 text-center">Resultado: {resultado}</h2>
+          <img
+            src={
+              resultado === "GRÜN"
+                ? "/images/semaforo-verde.png"
+                : resultado === "GELB"
+                ? "/images/semaforo-amarelo.png"
+                : "/images/semaforo-vermelho.png"
+            }
+            alt={`Indicador ${resultado}`}
+            className="w-40 h-auto mx-auto mb-4"
+          />
+          {resultado === "GRÜN" && (
+            <p className="text-center">Sie kommen mit diesem Thema gut zurecht und sind emotional stabil. Sie könnten anderen Menschen, die Hilfe benötigen, eine große Unterstützung sein.</p>
+          )}
+          {resultado === "GELB" && (
+            <p className="text-center">Es gibt deutliche Anzeichen emotionaler Schwierigkeiten, die bearbeitet werden sollten und mit Entschlossenheit und Unterstützung überwunden werden können.</p>
+          )}
+          {resultado === "ROT" && (
+            <p className="text-center">Ihre emotionalen Schwierigkeiten in diesem Bereich erfordern unbedingt professionelle Hilfe. Bitte suchen Sie baldmöglichst einen Arzt oder Psychologen auf.</p>
+          )}
           <button
-            className="mt-4 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700"
+            className="mt-6 px-4 py-2 bg-green-500 dark:bg-green-600 text-white rounded hover:bg-green-600 dark:hover:bg-green-700 block mx-auto"
             onClick={reiniciarTeste}
           >
             Test neu starten
           </button>
+    
         </>
       )}
     </div>
